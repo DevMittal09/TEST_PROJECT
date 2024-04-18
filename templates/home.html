@@ -2,55 +2,57 @@
 <html>
   <head>
     <title>Food ordering website</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <style>
-      h1 {
-        font-size: 60px;
-        font-family: "Roboto", sans-serif;
-        font-weight: bold;
-        color: rgb(50, 50, 50);
-        text-align: center;
-      }
-      h2 {
-        font-family: "Roboto", sans-serif;
-        font-size: 32px;
-        color: rgb(100, 100, 100);
-        text-align: center;
-        font-weight: normal;
-      }
-      .bodytext {
-        font-family: "Roboto", sans-serif;
-        color: black;
-      }
       #realx {
-        width: 100%;
         height: 360px;
+        width: 100%;
         object-fit: cover;
-      }
-      #container {
-        max-width: 720px;
-        margin: 0 auto;
       }
     </style>
   </head>
   <body>
-    <div id="container">
-      <h1>Dont starve Just order</h1>
+    <div class="container">
+      <h1
+        class="text-center mt-4 mb-4"
+        ,
+        style="font-family: 'Roboto', sans-serif; font-weight: bold"
+      >
+        Dont starve Just order
+      </h1>
       <img
+        class="img-fluid"
         id="realx"
         src="http://127.0.0.1:5501/static/realx.jpg"
         src="{{ url_for('static', filename='realx.jpg') }}"
       />
-      <h2>About US</h2>
-      <p class="bodytext">
+      <h2 class="text-center" style="margin-top: 20px; margin-bottom: 20px">
+        About US
+      </h2>
+      <p class="lead">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum iure rem
         error in obcaecati aut vero quibusdam commodi, veritatis cupiditate
         asperiores blanditiis ut ducimus dolores et officia iusto possimus? Ut.
       </p>
-      <h2>Best Sellers</h2>
-      <p class="bodytext">TODO-- SHow food items here</p>
-      <div style="text-align: center">
-        <button>GO TO CART</button>
-        <p>Copyright @DEV ,2024</p>
+      <h2
+        class="text-center"
+        style="margin-top: 40px; margin-bottom: 40px; font-weight: bold"
+      >
+        Best Sellers
+      </h2>
+      <div>
+        {% for food in foods %} {% include "fooditem.html" %} {% endfor %}
+      </div>
+      <div class="text-center mt-5">
+        <button class="btn btn-outline-primary btn-lg">GO TO CART</button>
+        <p style="font-size: 10px">Copyright @DEV ,2024</p>
       </div>
     </div>
   </body>
