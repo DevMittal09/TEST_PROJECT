@@ -16,15 +16,15 @@
         width: 100%;
         object-fit: cover;
       }
+      body {
+        margin-top: 50px;
+      }
     </style>
   </head>
   <body>
+    {% include 'navbar.html' %}
     <div class="container">
-      <h1
-        class="text-center mt-4 mb-4"
-        ,
-        style="font-family: 'Roboto', sans-serif; font-weight: bold"
-      >
+      <h1 class="text-center mt-4 mb-4" , style="font-weight: bold">
         Dont starve Just order
       </h1>
       <img
@@ -32,7 +32,11 @@
         id="realx"
         src="{{ url_for('static', filename='realx.jpg') }}"
       />
-      <h2 class="text-center" style="margin-top: 20px; margin-bottom: 20px">
+      <h2
+        id="about"
+        class="text-center"
+        style="margin-top: 20px; margin-bottom: 20px; padding-top: 80px"
+      >
         About US
       </h2>
       <p class="lead">
@@ -50,7 +54,9 @@
         {% for food in foods %} {% include "fooditem.html" %} {% endfor %}
       </div>
       <div class="text-center mt-5">
-        <button class="btn btn-outline-primary btn-lg">GO TO CART</button>
+        <a href="/cart"
+          ><button class="btn btn-outline-primary btn-lg">GO TO CART</button></a
+        >
         <p style="font-size: 10px">Copyright @DEV ,2024</p>
       </div>
     </div>

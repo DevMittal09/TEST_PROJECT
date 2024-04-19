@@ -35,7 +35,6 @@ FOOD =[
 @app.route("/")
 def hello_world():
     return render_template("home.html",foods=FOOD)
-
 @app.route("/api/food")
 def list_foods():
     return jsonify(FOOD)
